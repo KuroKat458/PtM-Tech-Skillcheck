@@ -1,0 +1,18 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_DoorKey(PTM_SkillCheck_TavernDoorKey_000_6a1880b0-1517-40da-a34e-790e31cf2f6f);
+DB_Guard(PTM_SkillCheck_Guard_97633e0c-df08-4748-92ce-5c4efc76c36f);
+KBSECTION
+//REGION init
+IF
+DB_DoorKey(_Key)
+AND
+DB_Guard(_Guard)
+THEN
+ToInventory((ITEM)_Key, _Guard);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

@@ -1,0 +1,25 @@
+{
+  "Flags": {
+    "1606ad63-adf2-ef7d-6e47-e76742d90ff4": [
+      "PTM_SkillCheck_SeducedGuard",
+      "PTM_SkillCheck_TalkedToGuard"
+    ],
+    "172b6093-1f45-de06-6b33-5e7e6d58305d": [
+      "PTM_SkillCheck_SeducedGuard",
+      "PTM_SkillCheck_TalkedToGuard"
+    ],
+    "9c7fda6b-6d99-8840-06db-9c2a7dee7ea4": [
+      "PTM_SkillCheck_SeducedGuard",
+      "PTM_SkillCheck_TalkedToGuard"
+    ],
+    "7bfb67de-6be7-8f1c-63a1-00f9866a242b": [ ],
+    "9a55f6f2-8390-eedc-5479-5abbe96bccb8": [ ]
+  },
+  "Lines": {
+    "1606ad63-adf2-ef7d-6e47-e76742d90ff4": "No entry!",
+    "172b6093-1f45-de06-6b33-5e7e6d58305d": " Greetings adventurer! Welcome to the Mistery Tavern!",
+    "9c7fda6b-6d99-8840-06db-9c2a7dee7ea4": "Go ahead beautiful...",
+    "7bfb67de-6be7-8f1c-63a1-00f9866a242b": "Oh... Why of course...",
+    "9a55f6f2-8390-eedc-5479-5abbe96bccb8": "Sorry the tavern is invitation only."
+  }
+}

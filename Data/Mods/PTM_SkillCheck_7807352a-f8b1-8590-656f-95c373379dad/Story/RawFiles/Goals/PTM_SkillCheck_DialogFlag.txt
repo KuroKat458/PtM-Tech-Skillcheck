@@ -1,0 +1,17 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_Door(DOOR_Double_Medium_City_House_B_000_035e24ab-bd19-4e11-a48f-325edc447af3);
+KBSECTION
+//Open doors on successfull CHA roll
+IF
+FlagSet((FLAG)PTM_SkillCheck_SeducedGuard_0540009e-1ea2-396f-9407-a09ea432df50, _Speaker, _Dialog)
+AND
+DB_Door(_Door)
+THEN
+Unlock((ITEM)_Door);
+Open((ITEM)_Door);
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

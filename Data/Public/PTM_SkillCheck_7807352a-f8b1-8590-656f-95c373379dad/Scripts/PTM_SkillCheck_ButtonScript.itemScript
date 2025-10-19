@@ -1,0 +1,14 @@
+INIT
+ITEM:__Me
+
+CHARACTER:%UsedBy = null
+
+EVENTS
+
+EVENT ButtonUse
+VARS
+CHARACTER:_Char
+ON
+	OnUseItem(_Char, __Me)
+ACTIONS
+	ItemOpen(ITEM:DOOR_Double_Medium_City_House_B_000_035e24ab-bd19-4e11-a48f-325edc447af3)

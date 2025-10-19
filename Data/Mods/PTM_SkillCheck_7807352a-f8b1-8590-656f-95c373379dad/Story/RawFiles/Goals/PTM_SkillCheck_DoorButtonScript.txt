@@ -1,0 +1,46 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_Button(PTM_SkillCheck_TavernButton_a48b3f06-7649-4485-9b32-e0d3113b2fdc);
+DB_Door(DOOR_Double_Medium_City_House_B_000_035e24ab-bd19-4e11-a48f-325edc447af3);
+KBSECTION
+//INIT
+IF
+DB_Button(_Button)
+THEN
+SetVisible(_Button, 0);
+
+//Trigger Perception Check
+IF
+DB_Players(_Player)
+AND
+DB_Button(_Button)
+THEN
+RequestPassiveRollVersusSkill(_Player, _Button, "RawAbility", "Stealth", "Perception", -1, 10, "GLO_HiddenItemCheck");
+
+//Trigger Perception Check
+PROC
+PROC_RollResult("GLO_HiddenItemCheck", _Player, _Button, _Succeeded)
+AND
+DB_Button(_Button)
+AND
+DB_Players(_Player)
+AND
+_Succeeded == 1
+THEN
+SetVisible(_Button, 1);
+
+//Open Doors on Button Press
+IF
+UseFinished(_Player, (ITEM)PTM_SkillCheck_TavernButton_a48b3f06-7649-4485-9b32-e0d3113b2fdc, 1)
+AND
+DB_Players(_Player)
+AND
+DB_Door(_Door)
+THEN
+Unlock((ITEM)_Door);
+Open((ITEM)_Door);
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
