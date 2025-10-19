@@ -12,15 +12,22 @@ SetVisible(_Button, 0);
 
 //Trigger Perception Check
 IF
+EnteredTrigger(_Player, (TRIGGER)PTM_SkillCheck_ButtonPerceptionTrigger_33f26093-147c-4d05-b80a-8076032486d8)
+AND
 DB_Players(_Player)
+AND
+IsTagged(_Player, (TAG)PTM_SkillCheck_AttemptedButtonRoll_a74d4b47-dfd1-4bc9-bec2-e823b7b6f59a, _Tagged)
+AND
+_Tagged == 0
 AND
 DB_Button(_Button)
 THEN
-RequestPassiveRollVersusSkill(_Player, _Button, "RawAbility", "Stealth", "Perception", -1, 10, "GLO_HiddenItemCheck");
+SetTag(_Player, (TAG)PTM_SkillCheck_AttemptedButtonRoll_a74d4b47-dfd1-4bc9-bec2-e823b7b6f59a);
+RequestPassiveRoll(_Player, _Button, "Passive", "Perception", (DIFFICULTYCLASS)HiddenPerception_Easy_10a7c9ba-bc09-4c30-8cfc-ce0c6766fac7, 0, "PTM_SkillCheck_ButtonPerceptionRoll");
 
 //Trigger Perception Check
 PROC
-PROC_RollResult("GLO_HiddenItemCheck", _Player, _Button, _Succeeded)
+PROC_RollResult("PTM_SkillCheck_ButtonPerceptionRoll", _Player, _Button, _Succeeded)
 AND
 DB_Button(_Button)
 AND
@@ -29,6 +36,7 @@ AND
 _Succeeded == 1
 THEN
 SetVisible(_Button, 1);
+PROC_PlayPerceptionRevealEffect(_Button, "PTM_SkillCheck_ButtonPerceptionRoll");
 
 //Open Doors on Button Press
 IF
